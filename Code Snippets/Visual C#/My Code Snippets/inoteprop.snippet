@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>INotify Property</Title>
+      <Author>Sam Plews</Author>
+      <Description>Inserts a property wired up to support the INotifyPropertyChanged interface.</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>inoteprop</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>PropertyName</ID>
+          <Type />
+          <ToolTip>Replace with meaningful property name.</ToolTip>
+          <Default>PropertyName</Default>
+          <Function />
+        </Literal>
+        <Literal Editable="true">
+          <ID>Type</ID>
+          <Type>object</Type>
+          <ToolTip>Replace with the type of your property.</ToolTip>
+          <Default>string</Default>
+          <Function />
+        </Literal>
+        <Literal Editable="true">
+          <ID>propertyName</ID>
+          <Type />
+          <ToolTip>Replace with meaningful private variable name.</ToolTip>
+          <Default>propertyName</Default>
+          <Function />
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="method decl" Delimiter="$"><![CDATA[private $Type$ $propertyName$;
+          
+/// < span="">>
+/// Gets or sets the $PropertyName$.
+/// </summary>
+/// <value>The $propertyName$.</value>
+public $Type$ $PropertyName$
+{
+    get { return this.$propertyName$; }
+    set 
+    {
+        if($propertyName$ == value)
+        {
+            return;
+        }
+        
+        $propertyName$ = value;
+        RaisePropertyChanged(() => $PropertyName$);
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
